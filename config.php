@@ -5,7 +5,7 @@
 
 global $CFG, $DB, $SESSION;
 
-define("CORE_VERSION", 2014050300);
+define("CORE_VERSION", 2014050301);
 
 $CFG = new \stdClass();
 $CFG->dirroot = dirname(__FILE__);
