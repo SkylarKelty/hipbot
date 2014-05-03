@@ -18,3 +18,5 @@ require_once($CFG->libdir . "/autoloader.php");
 
 $DB = new dml();
 $DB->connect();
+
+\models\Config::setup();

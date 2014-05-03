@@ -23,10 +23,7 @@ request::post($url, $body);
 
 print "Creating tables...";
 
-$object = new \SkylarK\Fizz\Util\FizzMigrate("config");
-$object->addField("key", "varchar(125)");
-$object->addField("value", "text");
-$object->commit();
+models\Config::migrate();
 
 $object = new \SkylarK\Fizz\Util\FizzMigrate("users");
 $object->addField("id", "int(11)");
