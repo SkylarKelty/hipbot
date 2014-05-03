@@ -16,6 +16,5 @@ require_once($CFG->dirroot . "/data.php");
 
 require_once($CFG->libdir . "/autoloader.php");
 
-dml::connect();
-
 $DB = new dml();
+$DB->connect();

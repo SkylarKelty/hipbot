@@ -5,10 +5,13 @@
 
 class dml
 {
+	/** Our own store of the PDO object */
+	private $_pdo;
+
 	/**
 	 * Connect Fizz to the DB
 	 */
-	public static function connect() {
+	public function connect() {
 		global $CFG;
 
 		try {
@@ -18,5 +21,7 @@ class dml
 			die($e->getMessage());
 			exit(0);
 		}
+
+		$this->_pdo = \SkylarK\Fizz\FizzConfig::getDB();
 	}
 }

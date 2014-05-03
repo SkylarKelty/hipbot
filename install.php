@@ -5,6 +5,10 @@
 
 require_once(dirname(__FILE__) . "/config.php");
 
+if (isset($CFG->installed) && $CFG->installed) {
+	die("Already installed!");
+}
+
 /*
 $url = "https://api.hipchat.com/v2/room/{$CFG->roomid}/webhook";
 $body = json_encode(array(
@@ -16,3 +20,24 @@ $body = json_encode(array(
 
 request::post($url, $body);
 */
+
+print "Creating tables...";
+
+$object = new \SkylarK\Fizz\Util\FizzMigrate("config");
+$object->addField("key", "varchar(125)");
+$object->addField("value", "text");
+$object->commit();
+
+$object = new \SkylarK\Fizz\Util\FizzMigrate("users");
+$object->addField("id", "int(11)");
+$object->addField("name", "varchar(255)");
+$object->addField("mention", "varchar(255)");
+$object->commit();
+
+$object = new \SkylarK\Fizz\Util\FizzMigrate("reminders");
+$object->addField("id", "int(11)");
+$object->addField("user", "int(11)");
+$object->addField("time", "int(11)");
+$object->addField("message", "text");
+$object->addField("status", "int(1)");
+$object->commit();
