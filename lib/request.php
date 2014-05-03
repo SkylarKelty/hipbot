@@ -8,7 +8,7 @@ class request
 	/**
 	 * Obtain an oAuth token
 	 */
-	private static obtain_token() {
+	private static function obtain_token() {
 		global $CFG;
 
 		$url = "https://api.hipchat.com/v2/oauth/token";
@@ -36,7 +36,7 @@ class request
 	/**
 	 * Signs a request
 	 */
-	private static sign() {
+	private static function sign() {
 		global $SESSION;
 
 		if (empty($SESSION->access_token)) {
@@ -56,7 +56,12 @@ class request
 	/**
 	 * Send a POST request.
 	 */
-	public static post($url, $body = '') {
+	public static function post($url, $body = '') {
+		$auth = self::sign();
+		if (!$auth) {
+			return false;
+		}
+
 		$ch = curl_init();
 
 		curl_setopt($ch, CURLOPT_URL,            $url);
@@ -64,7 +69,7 @@ class request
 		curl_setopt($ch, CURLOPT_POST,           1);
 		curl_setopt($ch, CURLOPT_POSTFIELDS,     $body);
 
-		$headers = array_merge(self::sign(), array('Content-Type: text/plain'));
+		$headers = array_merge($auth, array('Content-Type: text/plain'));
 		curl_setopt($ch, CURLOPT_HTTPHEADER,     $headers);
 
 		return curl_exec($ch);
