@@ -20,11 +20,22 @@ class User extends \SkylarK\Fizz\Fizz
 	 * Create a user from a message
 	 */
 	public static function from_message($message) {
-		$user = new static();
-		$user->name = $message->from->name;
-		$user->mention = $message->from->mention_name;
+		$matches = static::find(array(
+			"name" => $message->from->name
+		));
 
-		return $user;
+		if (count($matches) == 0) {
+			$user = new static();
+			$user->name = $message->from->name;
+			$user->mention = $message->from->mention_name;
+			if ($user->create()) {
+				return static::from_message($message);
+			}
+			return null;
+		}
+
+		$user = array_pop($matches);
+		return $user->id;
 	}
 
 	/**

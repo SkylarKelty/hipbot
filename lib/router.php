@@ -9,6 +9,9 @@ class router
 	 * Route a message
 	 */
 	public static function recieve_message($user, $message) {
-		error_log("Recieved Message from {$user->name}: $message.");
+		// Is this to set a reminder?
+		if (strpos($message, "remind me")) {
+			models\Reminder::match($user, $message);
+		}
 	}
 }
