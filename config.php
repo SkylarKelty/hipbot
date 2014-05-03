@@ -3,7 +3,7 @@
  * All files require config.php
  */
 
-global $CFG, $SESSION;
+global $CFG, $DB, $SESSION;
 
 $CFG = new \stdClass();
 $CFG->dirroot = dirname(__FILE__);
@@ -15,3 +15,7 @@ $SESSION = new \stdClass();
 require_once($CFG->dirroot . "/data.php");
 
 require_once($CFG->libdir . "/autoloader.php");
+
+dml::connect();
+
+$DB = new dml();

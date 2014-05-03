@@ -5,15 +5,6 @@
 
 require_once(dirname(__FILE__) . "/config.php");
 
-?>
-
-<html>
-<head>
-  <script src="https://www.hipchat.com/atlassian-connect/all.js"></script>
-  <link rel="stylesheet" href="https://www.hipchat.com/atlassian-connect/all.css">
-</head>
-<body>
-<?php
 /*
 $url = "https://api.hipchat.com/v2/room/{$CFG->roomid}/webhook";
 $body = json_encode(array(
@@ -25,6 +16,3 @@ $body = json_encode(array(
 
 request::post($url, $body);
 */
-?>
-</body>
-</html>
