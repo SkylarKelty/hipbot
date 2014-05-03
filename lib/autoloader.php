@@ -3,6 +3,8 @@
  * HipBot autoloader
  */
 
+require_once($CFG->dirroot . "/vendor/autoload.php");
+
 spl_autoload_register(function ($class_name) {
 	$classpath = explode('\\', $class_name);
 

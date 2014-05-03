@@ -15,7 +15,7 @@
    }],
    "require": {
       "php": ">=5.3",
-      "fizz": ">=1.5.1"
+      "skylarkelty/fizz": ">=1.5.1"
    },
    "autoload": {
       "psr-0": {
