@@ -24,17 +24,5 @@ request::post($url, $body);
 print "Creating tables...";
 
 models\Config::migrate();
-
-$object = new \SkylarK\Fizz\Util\FizzMigrate("users");
-$object->addField("id", "int(11)");
-$object->addField("name", "varchar(255)");
-$object->addField("mention", "varchar(255)");
-$object->commit();
-
-$object = new \SkylarK\Fizz\Util\FizzMigrate("reminders");
-$object->addField("id", "int(11)");
-$object->addField("user", "int(11)");
-$object->addField("time", "int(11)");
-$object->addField("message", "text");
-$object->addField("status", "int(1)");
-$object->commit();
+models\Reminder::migrate();
+models\User::migrate();
