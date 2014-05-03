@@ -15,6 +15,7 @@ $SESSION = new \stdClass();
 require_once($CFG->dirroot . "/data.php");
 
 require_once($CFG->libdir . "/autoloader.php");
+require_once($CFG->libdir . "/hipbot.php");
 
 $DB = new dml();
 $DB->connect();
