@@ -19,11 +19,8 @@ class request
 		curl_setopt($ch, CURLOPT_USERPWD,        $CFG->oauth_id . ":" . $CFG->oauth_secret);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_POST,           1);
-		curl_setopt($ch, CURLOPT_POSTFIELDS,     array(
-			"grant_type" => "client_credentials",
-			"scope" => "admin_room"
-		));
-		curl_setopt($ch, CURLOPT_HTTPHEADER,     array('Content-Type: application/x-www-form-urlencoded')); 
+		curl_setopt($ch, CURLOPT_POSTFIELDS,     "grant_type=client_credentials&scope=admin_room");
+		curl_setopt($ch, CURLOPT_HTTPHEADER,     array('Content-Type: application/x-www-form-urlencoded'));
 
 		$body = curl_exec($ch);
 		$data = json_decode($body);
@@ -69,7 +66,7 @@ class request
 		curl_setopt($ch, CURLOPT_POST,           1);
 		curl_setopt($ch, CURLOPT_POSTFIELDS,     $body);
 
-		$headers = array_merge($auth, array('Content-Type: text/plain'));
+		$headers = array_merge($auth, array('Content-Type: application/json'));
 		curl_setopt($ch, CURLOPT_HTTPHEADER,     $headers);
 
 		return curl_exec($ch);
