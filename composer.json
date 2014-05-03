@@ -1,0 +1,25 @@
+{
+   "name": "skylarkelty/hipbot",
+   "description": "A HipChat bot.",
+   "type": "application",
+   "keywords": [
+      "bot",
+      "hipchat"
+   ],
+   "homepage": "https://github.com/SkylarKelty/hipbot",
+   "license": "Apache License v2.0",
+   "authors": [{
+      "name": "Skylar Tristan Kelty",
+      "email": "skylarkelty@gmail.com",
+      "role": "lead"
+   }],
+   "require": {
+      "php": ">=5.3",
+      "fizz": ">=1.5.1"
+   },
+   "autoload": {
+      "psr-0": {
+         "SkylarK": ["src/"]
+      }
+   }
+}
