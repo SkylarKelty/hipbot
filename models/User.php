@@ -43,5 +43,7 @@ class User extends \SkylarK\Fizz\Fizz
 		$object->addField("name", "varchar(255)");
 		$object->addField("mention", "varchar(255)");
 		$object->commit();
+		$object->setPrimary("id");
+		$object->commit();
 	}
 }

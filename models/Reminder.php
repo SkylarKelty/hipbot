@@ -31,5 +31,7 @@ class Reminder extends \SkylarK\Fizz\Fizz
 		$object->addField("message", "text");
 		$object->addField("status", "int(1)");
 		$object->commit();
+		$object->setPrimary("id");
+		$object->commit();
 	}
 }

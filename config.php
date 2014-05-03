@@ -5,6 +5,8 @@
 
 global $CFG, $DB, $SESSION;
 
+define("CORE_VERSION", 2014050300);
+
 $CFG = new \stdClass();
 $CFG->dirroot = dirname(__FILE__);
 $CFG->libdir = $CFG->dirroot . "/lib";

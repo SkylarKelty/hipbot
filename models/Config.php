@@ -38,5 +38,7 @@ class Config extends \SkylarK\Fizz\Fizz
 		$object->addField("key", "varchar(125)");
 		$object->addField("value", "text");
 		$object->commit();
+		$object->setPrimary("key");
+		$object->commit();
 	}
 }
