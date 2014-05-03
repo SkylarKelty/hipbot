@@ -4,13 +4,20 @@
  */
 
 function set_config($key, $val) {
-	$config = new models\Config();
-	$config->key = $key;
-	$config->value = $val;
+	$config = models\Config::find(array(
+		"key" => $key
+	));
 
-	if (empty(models\Config::find(array("key" => $key)))) {
+	if (empty($config)) {
+		$config = new models\Config();
+		$config->key = $key;
+		$config->value = $val;
 		$config->create();
-	} else {
-		$config->update();
+		return;
 	}
+
+	$config = array_pop($config);
+	$config->update(array(
+		"value" => $val
+	));
 }
