@@ -16,12 +16,10 @@ spl_autoload_register(function ($class_name) {
 		return;
 	}
 
-	$parts = explode('_', $classpath[0]);
-	$type = $parts[0];
-	$name = $parts[1];
-	$class = $parts[2];
+	$type = $classpath[0];
+	$name = $classpath[1];
 
-	$filename = dirname(__FILE__) . "/../$type/$name/$class.php";
+	$filename = dirname(__FILE__) . "/../$type/$name.php";
 	if (file_exists($filename)) {
 		@include($filename);
 	}

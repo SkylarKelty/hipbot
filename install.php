@@ -26,3 +26,5 @@ print "Creating tables...";
 models\Config::migrate();
 models\Reminder::migrate();
 models\User::migrate();
+
+set_config("version", 2014050300);
