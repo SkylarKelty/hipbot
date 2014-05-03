@@ -5,7 +5,7 @@
 
 namespace models;
 
-class User extends SkylarK\Fizz\Fizz
+class User extends \SkylarK\Fizz\Fizz
 {
 	/** The user's id */
 	public $id;

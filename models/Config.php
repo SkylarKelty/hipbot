@@ -5,7 +5,7 @@
 
 namespace models;
 
-class Config extends SkylarK\Fizz\Fizz
+class Config extends \SkylarK\Fizz\Fizz
 {
 	public $key;
 	public $value;

@@ -5,7 +5,7 @@
 
 namespace models;
 
-class Reminder extends SkylarK\Fizz\Fizz
+class Reminder extends \SkylarK\Fizz\Fizz
 {
 	public $id;
 	public $user;

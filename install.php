@@ -5,7 +5,7 @@
 
 require_once(dirname(__FILE__) . "/config.php");
 
-if (isset($CFG->installed) && $CFG->installed) {
+if (isset($CFG->version) && $CFG->version) {
 	die("Already installed!");
 }
 
